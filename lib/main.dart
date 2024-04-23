@@ -3,6 +3,7 @@ import 'Home/Component/Cart/cartscreen.dart';
 import 'Home/Component/Checkout/checkout_page.dart';
 import 'Home/Component/Detail/detail_page.dart';
 import 'Home/Component/Home_Page/home_page.dart';
+import 'Home/Component/Splash/splashscreen.dart';
 
 void main()
 {
@@ -18,7 +19,8 @@ class IceCream extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // home: Detail_Page(),
       routes: {
-        '/' : (context)=> Home_page(),
+        '/' : (context)=> Splash_Screen(),
+        '/home' : (context)=> Home_page(),
         '/detail' : (context)=> Detail_Page(),
         '/cart' : (context)=> CartScreen(),
         '/checkout' : (context)=> Checkout_page(),

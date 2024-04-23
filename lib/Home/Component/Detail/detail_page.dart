@@ -41,25 +41,25 @@ class _Detail_PageState extends State<Detail_Page> {
             bool a = false;
             int index =0;
             for(int i=0; i<cartitems.length; i++)
+            {
+              if(cartitems[i]['name']==itemslist[selectedindex]['name'])
               {
-                if(cartitems[i]['name']==itemslist[selectedindex]['name'])
-                  {
-                    a = true;
-                    index=i;
-                  }
+                a = true;
+                index=i;
               }
+            }
             if(a)
-              {
-                cartitems[index]['qty']++;
-              }
+            {
+              cartitems[index]['qty']++;
+            }
             else{
               cartitems.add(itemslist[selectedindex]);
             }
 
-             Navigator.of(context).pushNamed('/cart');
+            Navigator.of(context).pushNamed('/cart');
           },
           child: Container(
-             margin: EdgeInsets.only(bottom: 5),
+            margin: EdgeInsets.only(bottom: 5),
             height: 70,
             width: double.infinity,
             decoration: BoxDecoration(

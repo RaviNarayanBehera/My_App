@@ -14,95 +14,100 @@ class _Checkout_pageState extends State<Checkout_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: const Color(0xFFF987C5),
-        title: const Text(
-          'Payment',
-          style: TextStyle(
-              color: Colors.black, fontSize: 25, fontWeight: FontWeight.w500),
-        ),
-      ),
-      body: Column(
-        children: [
-          paymentbox(name: cartitems[index]['name'],qty: cartitems[index]['qty'], ),
-          Container(
-            height: 100,
-            margin: EdgeInsets.all(5),
-            width: double.infinity,
-            decoration: BoxDecoration(
-                color: Colors.pink.shade100,
-                borderRadius: BorderRadius.circular(25)
-            ),
+        appBar: AppBar(
+          leading: IconButton(
+            onPressed: (){
+              qty = 0;
+              amt =0 ;
+              total =0;
+              Navigator.of(context).pop();
+            },
+            icon: Icon(Icons.arrow_back),
           ),
-        ],
-      )
+          centerTitle: true,
+          backgroundColor: const Color(0xFFF987C5),
+          title: const Text(
+            'Payment',
+            style: TextStyle(
+                color: Colors.black, fontSize: 25, fontWeight: FontWeight.w500),
+          ),
+        ),
+        body: Column(
+          children: [
+            paymentbox(),
+          ],
+        )
     );
   }
 
-  Container paymentbox({required String name,required int qty,}) {
+  Container paymentbox() {
     return Container(
-          height: 300,
-          margin: EdgeInsets.all(5),
-          width: double.infinity,
-          decoration: BoxDecoration(
-              color: Colors.pink.shade100,
-              borderRadius: BorderRadius.circular(25)
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Column(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                      height: 3,
-                    ),
-                Text.rich(
-                  TextSpan(
-                    children: [
-                      const TextSpan(
-                        text: 'Qty        :',
-                        style: TextStyle(
-                          fontSize: 22,
-                        ),
-                      ),
-                      TextSpan(
-                        text: ' $qty',
-                        style: const TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Text.rich(
-                  TextSpan(
-                    children: [
-                      const TextSpan(
-                        text: 'Total     :',
-                        style: TextStyle(
-                          fontSize: 22,
-                        ),
-                      ),
-                      TextSpan(
-                        text: '  $total',
-                        style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.w500
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-
-              ],
+      height: 300,
+      margin: EdgeInsets.all(5),
+      width: double.infinity,
+      decoration: BoxDecoration(
+          color: Colors.pink.shade100,
+          borderRadius: BorderRadius.circular(25)
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(child: Text('Bill Recipt',style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500,fontSize: 30),)),
+            SizedBox(
+              height: 3,
             ),
-          ),
-        );
+            Text.rich(
+              TextSpan(
+                children: [
+                  const TextSpan(
+                    text: '\nAmount     :',
+                    style: TextStyle(
+                      fontSize: 22,
+                    ),
+                  ),
+                  TextSpan(
+                    text: '     $amt',
+                    style: const TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  TextSpan(
+                    text: '\nGST            :',
+                    style: TextStyle(
+                      fontSize: 22,
+                    ),
+                  ),
+                  TextSpan(
+                    text: '     18%',
+                    style: const TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  TextSpan(
+                    text: '\nTotal          :',
+                    style: TextStyle(
+                      fontSize: 22,
+                    ),
+                  ),
+                  TextSpan(
+                    text: '     $total',
+                    style: const TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
+
+int qty=0;
