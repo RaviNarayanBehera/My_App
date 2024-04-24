@@ -59,9 +59,9 @@ class _Detail_PageState extends State<Detail_Page> {
             Navigator.of(context).pushNamed('/cart');
           },
           child: Container(
-            margin: EdgeInsets.only(bottom: 5),
-            height: 70,
-            width: double.infinity,
+            margin: EdgeInsets.only(bottom: 10),
+            height: 50,
+            width: 350,
             decoration: BoxDecoration(
               gradient: LinearGradient(colors: [
                 Colors.pink.shade300,
