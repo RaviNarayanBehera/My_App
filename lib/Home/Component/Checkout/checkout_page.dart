@@ -1,6 +1,5 @@
 import 'package:ecommerce_app/Global.dart';
 import 'package:ecommerce_app/Home/Component/Cart/cartscreen.dart';
-import 'package:ecommerce_app/Home/Component/Home_Page/Lists.dart';
 import 'package:flutter/material.dart';
 
 class Checkout_page extends StatefulWidget {
